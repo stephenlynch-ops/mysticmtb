@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-STATUS = ((O, 'Draft'), (1, 'Published'))
+STATUS = ((0, 'Draft'), (1, 'Published'))
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -10,7 +10,7 @@ class Post(models.Model):
     map = CloudinaryField('map', default='placeholder_map')
     image_one = CloudinaryField('image_one', default='placeholder_one')
     image_two = CloudinaryField('image_two', default='placeholder_two')
-    difficulty = models.CharField(max_length=10, related_name='difficulty')
+    difficulty = models.CharField(max_length=10)
     time = models.TimeField(auto_now_add=False)
     distance = models.CharField(max_length=10)
     ave_speed = models.CharField(max_length=20)
