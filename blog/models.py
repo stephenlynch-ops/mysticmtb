@@ -16,10 +16,12 @@ class Post(models.Model):
     ave_speed = models.CharField(max_length=20)
     up = models.CharField(max_length=10)
     down = models.CharField(max_length=10)
+    content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     published_on = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
-
+    status = models.IntegerField(choices=STATUS, default=0)
+    
 class Meta:
     ordering = ['-created_on']
 
