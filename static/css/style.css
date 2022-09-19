@@ -1,23 +1,31 @@
 /* Global Styles */
 body {
     font-family: 'Reem Kufi Fun', sans-serif;
-    background-color:aliceblue;
+    background-color:rgb(37, 37, 37);
+    color: white;
 }
 
 a {
-    text-decoration: none;
+    color: white;
 }
+
+/* Base.html specific styles */
 
 .navbar {
     padding: 0px;
 }
+
+#copyright {
+    padding: 15px;
+}
+
 
 /* Index.html specific styles */
 
 /* Carousel styling */
 .carousel-item {
     height: 32rem;
-    background: #000;
+    background: #777;
     color: white;
     position: relative;
     background-position: center;
@@ -49,3 +57,15 @@ a {
     opacity: 0.8;
 }
 
+/* About Section Styles */
+
+.about-row {
+    height: 48rem;
+}
+
+.small-hero-image {
+    padding: 0px, 10px;
+    max-height: 100%;
+    max-width: 100%;
+    align-items: center;
+}
