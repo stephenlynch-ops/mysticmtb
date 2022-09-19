@@ -1,0 +1,49 @@
+/* Global Styles */
+body {
+    font-family: 'Reem Kufi Fun', sans-serif;
+    background-color:aliceblue;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    padding: 0px;
+}
+
+/* Index.html specific styles */
+
+.carousel-item {
+    height: 32rem;
+    background: #000;
+    color: white;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+}
+
+.carousel-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 50px;
+}
+
+.overlay-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.5;
+}
+
+.carousel-body {
+    background-color: #000;
+    opacity: 0.8;
+}
