@@ -11,7 +11,7 @@ class Post(models.Model):
     image_one = CloudinaryField('image_one', default='placeholder_one')
     image_two = CloudinaryField('image_two', default='placeholder_two')
     difficulty = models.CharField(max_length=10)
-    time = models.TimeField(auto_now_add=False)
+    time = models.CharField(max_length=10)
     distance = models.CharField(max_length=10)
     ave_speed = models.CharField(max_length=20)
     up = models.CharField(max_length=10)
