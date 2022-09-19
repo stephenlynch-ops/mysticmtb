@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Post Comment Section -->
+
+<!-- Article Header Section -->
+<div class="masthead">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6 masthead-text">
+                <h1 class="post-title">{{ post.title }}</h1>
+                <p class="post-subtitle">{{ post.author }} | {{ post.published_on }}</p>
+            </div>
+            <div class="d-none d-md-block col-m6 masthead-image">
+                {% if "placeholder" in post.featured_image.url %}
+                <img src="/static/images/placeholder-trail-image.jpg" alt="Image of the Black Mountain">
+                {% else %}
+                <img src=" {{ post.image_one.url }} " width="100%">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
