@@ -1,31 +1,48 @@
 {% extends "base.html" %}
 
-
 {% block content %}
 
 <!-- Carousel section -->
 
 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <ol class="carousel-indicators">
-        <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
-        <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+        <li data-bs-target="myCarousel" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="myCarousel" data-bs-slide-to="1"></li>
+        <li data-bs-target="myCarousel" data-bs-slide-to="2"></li>
     </ol>
-    <div class="carousel-inner">    
-        <div class="carousel-item active">
-            <div class="caro-container">
-                <h1>Example Headline</h1>
-                <p>This is just to identify slide 1</p>
+    <div class="carousel-inner">
+        <div class="carousel-item active" style="background-image:url(/static/images/trails-slide.jpg)" alt="A rider riding the trails">
+            <div class="container carousel-container">
+                <div class="overlay-image"></div>
+                <div class="carousel-body position-absolute top-50 start-50 translate-middle">
+                    <a href="#" class="btn btn-lg btn-dark"><h1>View The Trails</h1></a>
+                </div>
             </div>
         </div>
-        <div class="carousel-item">
-            <div class="caro-container">
-                <h1>Example Headline</h1>
-                <p>This is just to identify slide 2</p>
-
+        <div class="carousel-item" style="background-image:url(/static/images/what-you-need-slide.jpg)" alt="A rider riding through the forest">
+            <div class="container carousel-container">
+                <div class="overlay-image"></div>
+                <div class="carousel-body position-absolute top-50 start-50 translate-middle">
+                    <a href="#" class="btn btn-lg btn-dark"><h1>Advised Equipment</h1></a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image:url(/static/images/cafe-slide.jpg)" alt="Coffee and cake on a table">
+            <div class="container carousel-container">
+                <div class="overlay-image"></div>
+                <div class="carousel-body position-absolute top-50 start-50 translate-middle">
+                    <a href="#" class="btn btn-lg btn-dark"><h1>View The Cafe</h1></a>
+                </div>
             </div>
         </div>
     </div>
-    <a href="#myCarousel" class="carousel-control-prev" role="button" data-bs-slide="prev"><span class="sr-only">Previous</span><span class="carousel-control-prev-icon" hidden="true"></span></a>
-    <a href="#myCarousel" class="carousel-control-next" role="button" data-bs-slide="next"><span class="sr-only">Next</span><span class="carousel-control-next-icon" hidden="true"></span></a>
+    <a href="#myCarousel" class="carousel-control-prev" role="button" data-bs-slide="prev">
+        <span class="sr-only">Previous</span>
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </a>
+    <a href="#myCarousel" class="carousel-control-next" role="button" data-bs-slide="next">
+        <span class="sr-only">Next</span>
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </a>
 </div>
 {% endblock %}
