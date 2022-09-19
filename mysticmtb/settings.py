@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'django_summernote',
+    'crispy_forms',
     'blog',
 ]
 
@@ -56,6 +57,9 @@ SITE_ID = 1
 
 LOGIN_REDIRECT = '/'
 LOGOUT_REDIRECT = '/'
+
+# Testing to see if this works with a bootstrap 5 pack we used 4 in the walkthrough
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% load crispy_forms_tags %}
+
 <!-- Post Comment Section -->
 
 <!-- Article Header Section -->
@@ -64,6 +66,7 @@
             <hr>
         </div>
     </div>
+<!-- Existing Comments Section -->
     <div class="row">
         <div class="col-md-8 card mb-4  mt-3 ">
             <h3>Comments:</h3>
@@ -81,6 +84,7 @@
                 {% endfor %}
             </div>
         </div>
+<!-- Commenting Section -->
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
                 {% if commented %}
