@@ -13,3 +13,4 @@ class PostList(generic.ListView):
 def open_home_page(request):
     return render(request, 'index.html')
 
+

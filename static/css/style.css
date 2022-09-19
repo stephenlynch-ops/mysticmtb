@@ -5,9 +5,11 @@ body {
     color: white;
 }
 
-a {
+a, i {
     color: white;
 }
+
+
 
 /* Base.html specific styles */
 
@@ -68,4 +70,34 @@ a {
     max-height: 100%;
     max-width: 100%;
     align-items: center;
+}
+
+/* Trails List Section Styles */
+
+.fa-regular {
+    color: white;
+}
+
+.image-row {
+    padding: 0;
+    height: 24rem;
+}
+
+.img-container {
+    height: 100%;
+}
+
+.map-frame {
+    max-height: 100%;
+    width: 100%;
+}
+
+.image-frame {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.post-title {
+    text-decoration: none;
 }

@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+<script src="https://kit.fontawesome.com/606c2cbf20.js" crossorigin="anonymous"></script>
+
 
 {% block content %}
 
@@ -15,7 +17,7 @@
             <div class="container carousel-container">
                 <div class="overlay-image"></div>
                 <div class="carousel-body position-absolute top-50 start-50 translate-middle">
-                    <a href="#" class="btn btn-lg btn-dark"><h1>View The Trails</h1></a>
+                    <a href="{% url 'PostList' %}" class="btn btn-lg btn-dark"><h1>View The Trails</h1></a>
                 </div>
             </div>
         </div>
@@ -47,18 +49,19 @@
 </div>
 
 <br>
-
+<!-- About Section -->
 <div class="container">
     <div class="row about-row">
         <div class="col-sm-8">
             <h1>About Black Mountain MTB</h1>
             <p>Here at Black Mountain MTB we have trail to suit all MTB skill levels. From our 
-                simply awesome <a href="#"><span>Rockin' Apples</span></a> blue trail, to our 
-                rock-slab filled <a href="#"><span>Nicos Revenge</span></a>, we have it all.
+                simply awesome <a href="{% url 'PostList' %}"><span>Rockin' Apples</span></a> blue trail, to our 
+                rock-slab filled <a href="{% url 'PostList' %}"><span>Nicos Revenge</span></a>, we have it all.
             </p>
             <p>
-                <a href="#"><span>Click here to see all of the trails.</span></a>
+                <a href="{% url 'PostList' %}"><span>Click here to see all of the trails.</span></a>
             </p>
+            <br>
             <br>
             <h3>Be part of our communitee</h3>
             <p>We are always building new trails and welcome any feedback you may have for our new,
@@ -67,6 +70,7 @@
             <p>    
                 Simply <a href="#"><span>SIGN UP</span></a> for an account to enable the ability to comment.
             </p>
+            <br>
             <br>
             <h3>On site facilities</h3>            
             <p>Oh, and did we mention we have cake. Check out the <a href="#"><span>Cafe</span></a> page 

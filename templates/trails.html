@@ -1,7 +1,114 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
 
-<h1>Hello World!</h1>
+<!-- Post List Section -->
+
+<div class="col-12 mt-3 left p-0">
+    <div class="row top-post-row">
+    {% for post in post_list %}
+        <div class="col mb-4">
+            <div class="card-mb-4">
+                <div class="card-body">
+                    <!-- Post Map & Image Section -->
+                    <div class="image-container">
+                        <div class="row image-row">
+                            <!-- Post Map Section -->
+                            <div class="col-2 p-0 img-container">
+                                {% if "placeholder_map" in post.map.url %}
+                                <img class="card-img-top img-fluid map-frame" src="/static/images/placeholder-map.jpg" alt="placeholder image of a map and compass">
+                                <div class="placeholder_message_box">
+                                    <h3 class="placeholder text">Trail Map Under Construction</h3>
+                                </div>
+                                {% else %}
+                                <img class="card-img-top img-fluid map-frame" src="{{ post.map.url }}" alt="Trail map">
+                                {% endif %}
+                            </div>
+                            <!-- Post Image One Section -->
+                            <div class="col-5 p-0 img-container">
+                                {% if "placeholder_map" in post.image_one.url %}
+                                <img class="card-img-top img-fluid image-frame" src="/static/images/placeholder-trail-image.jpg" alt="placeholder image of the Black Mountain">
+                                <div class="placeholder_message_box">
+                                    <h3 class="placeholder text">Awaiting Trail Image</h3>
+                                </div>
+                                {% else %}
+                                <img class="card-img-top img-fluid image-frame" src="{{ post.image_one.url }}" alt="Trail image">
+                                {% endif %}
+                            </div>
+                            <!-- Post Image Two Section -->
+                            <div class="col-5 p-0 img-container">
+                                {% if "placeholder_map" in post.image_two.url %}
+                                <img class="card-img-top img-fluid image-frame" src="/static/images/placeholder-trail-image.jpg" alt="placeholder image of the Black Mountain">
+                                <div class="placeholder_message_box">
+                                    <h3 class="placeholder text">Awaiting Trail Image</h3>
+                                </div>
+                                {% else %}
+                                <img class="card-img-top img-fluid image-frame" src="{{ post.image_two.url }}" alt="Trail image">
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>    
+                    <!-- Need to add link here -->
+                    <div class="row">
+                        <a href="#" class="post-link">
+                            <h1 class="card-title post-title">{{ post.title }}</h1>
+                        </a>
+                        <div class="col">
+                            <p class="card-title">Diff : {{ post.difficulty }}</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-title"><i class="fa-solid fa-hourglass"></i> {{ post.time }}</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-title"><i class="fa-solid fa-arrows-left-right"></i> {{ post.distance }} km</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-title"><i class="fa-solid fa-gauge-high"></i> {{ post.ave_speed }} km/h</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-title"><i class="fa-solid fa-sort-up"></i> {{ post.up }} m</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-title"><i class="fa-solid fa-sort-down"></i> {{ post.down }} m</p>
+                        </div>    
+                    </div>
+                    <br>
+                    <div class="row">
+                        <h4 class="card-title">About the trail: </h4>
+                    </div>
+                    <div class="row">    
+                        <p class="card-text">{{ post.content |safe }}</p>
+                    </div>
+                    <div class="row">
+                        <h3 class="card-title">Author: {{ post.author }}</h3>
+                    </div>
+                    <div>
+                        <p class="card-text text-muted h6">Published On: {{ post.published_on }} <i class="fa-solid fa-heart"></i>{{ post.number_of_likes }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% if forloop.counter|divisibleby:2 %}
+    </div>
+    <div class="row">
+    {% endif %}
+    {% endfor %}
+    </div>
+</div>
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}"
+            class="page-link">&laquo; PREV</a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}"
+            class="page-link">NEXT &raquo;</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+</div>
 
 {% endblock %}
