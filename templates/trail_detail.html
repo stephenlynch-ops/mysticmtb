@@ -14,11 +14,20 @@
                 <h1 class="post-title">{{ post.title }}</h1>
                 <p class="post-subtitle">{{ post.author }} | {{ post.published_on }}</p>
             </div>
-            <div class="d-none d-md-block col-m6 masthead-image">
+        </div>
+        <div class="row trail-detail-image-row">
+            <div class="col-6 d-none d-md-block col-m6 masthead-image">
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="/static/images/placeholder-trail-image.jpg" alt="Image of the Black Mountain">
+                <img class="img-fluid map-frame" src="/static/images/placeholder-trail-image.jpg" alt="Image of the Black Mountain">
                 {% else %}
-                <img src=" {{ post.image_one.url }} " width="100%">
+                <img class="img-fluid map-frame" src=" {{ post.image_one.url }} " width="100%">
+                {% endif %}
+            </div>
+            <div class="col-6 d-none d-md-block col-m6 masthead-image">
+                {% if "placeholder" in post.featured_image.url %}
+                <img class="img-fluid map-frame" src="/static/images/placeholder-trail-image.jpg" alt="Image of the Black Mountain">
+                {% else %}
+                <img class="img-fluid map-frame" src=" {{ post.image_two.url }} " width="100%">
                 {% endif %}
             </div>
         </div>
@@ -28,9 +37,9 @@
 <!-- Article Detail Section -->
 <div class="container">
     <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
-                <p class="card-text ">
+        <div class="col card bg-dark mb-4  mt-3 left  top">
+            <div class="card-body bg-dark">
+                <p class="card text-white bg-dark mb-3">
                     {{ post.content | safe }}
                 </p>
                 <div class="row">
@@ -40,21 +49,20 @@
                             <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
-                                <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like"><i class="fas fa-heart"></i></button>
+                                <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like my-buttons"><i class="fas fa-heart"></i></button>
                                 {% else %}
-                                <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like"><i class="far fa-heart"></i></button>
+                                <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like my-buttons"><i class="far fa-heart"></i></button>
                                 {% endif %}
                             </form>
                             {% else %}
-                            <span class="text-secondary"><i class="far fa-heart"></i></span>
+                            <span class="text-secondary text-light"><i class="fa-regular fa-heart"></i></span>
                             {% endif %}
-                        <span class="text-secondary">{{ post.number_of_likes }} </span>
+                        <span class="text-secondary text-light">{{ post.number_of_likes }} </span>
                         </strong>
                     </div>
                     <div class="col-1">
                         {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="far fa-comments"></i>
-                            {{ total_comments }}</strong>
+                        <strong class="text-secondary text-light"><i class="far fa-comments"></i> {{ total_comments }} </strong>
                         {% endwith %}
                     </div>
                 </div>
@@ -68,7 +76,7 @@
     </div>
 <!-- Existing Comments Section -->
     <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
+        <div class="col-md-8 card mb-4 bg-dark mt-3 ">
             <h3>Comments:</h3>
             <div class="card-body">
                 {% for comment in comments %}
@@ -85,7 +93,7 @@
             </div>
         </div>
 <!-- Commenting Section -->
-        <div class="col-md-4 card mb-4  mt-3 ">
+        <div class="col-md-4 card mb-4 bg-dark mt-3 ">
             <div class="card-body">
                 {% if commented %}
                 <div class="alert alert-success" role="alert">
@@ -98,7 +106,7 @@
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    <button type="submit" class="btn btn-signup btn-lg my-buttons mt-3">Submit</button>
                 </form>
                 {% endif %}
                 {% endif %}

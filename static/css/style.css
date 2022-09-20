@@ -9,7 +9,10 @@ a, i {
     color: white;
 }
 
-
+.my-buttons {
+    background-color: aliceblue;
+    border: 1px solid black;
+}
 
 /* Base.html specific styles */
 
@@ -89,7 +92,7 @@ a, i {
 
 .map-frame {
     max-height: 100%;
-    width: 100%;
+    max-width: 100%;
 }
 
 .image-frame {
@@ -100,6 +103,21 @@ a, i {
 
 .post-link {
     text-decoration: none;
+}
+
+.likes-count {
+    background-color: pink;
+}
+
+/* Trail_detail.html style section */
+
+.trail-detail-image-row {
+    max-height: 42rem;
+}
+
+.masthead-image {
+    max-height: 42rem;
+    overflow: hidden;
 }
 
 /* Logout / Login / Signup.html specific styles */
@@ -127,7 +145,3 @@ a, i {
     overflow: hidden;
 }
 
-.my-buttons {
-    background-color: aliceblue;
-    border: 1px solid black;
-}

@@ -83,8 +83,13 @@
                             <div class="row">
                                 <h3 class="card-title">Author: {{ post.author }}</h3>
                             </div>
-                            <div>
-                                <p class="card-text text-muted h6">Published On: {{ post.published_on }} <i class="fa-solid fa-heart"></i>{{ post.number_of_likes }}</p>
+                            <div class="row">
+                                <div class="col-9">
+                                    <p class="card-text text-muted text-white h6">Published On: {{ post.published_on }}</p>
+                                </div>
+                                <div class="col-3">
+                                    <p class="text-white"><i class="fa-solid fa-heart"></i>{{ post.likes.count }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>

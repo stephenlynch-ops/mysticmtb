@@ -68,9 +68,12 @@
                 and current, trails. Thats why you can comment on any of the trail pages. 
             </p>
             <p>    
-                Simply <a href="#"><span>SIGN UP</span></a> for an account to enable the ability to comment.
+                Simply <a href="{% url 'account_signup' %}"><span>SIGN UP</span></a> for an account to enable the ability to comment.
             </p>
             <br>
+            <p>
+                Or <a href="{% url 'account_login' %}">LOGIN</a> here!
+            </p>
             <br>
             <h3>On site facilities</h3>            
             <p>Oh, and did we mention we have cake. Check out the <a href="#"><span>Cafe</span></a> page 
