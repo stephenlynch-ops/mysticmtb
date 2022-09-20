@@ -1,7 +1,7 @@
 /* Global Styles */
 body {
     font-family: 'Reem Kufi Fun', sans-serif;
-    background-color:rgb(37, 37, 37);
+    background-color:#212529;
     color: white;
 }
 
@@ -100,4 +100,24 @@ a, i {
 
 .post-link {
     text-decoration: none;
+}
+
+/* Logout.html specific styles */
+
+.sign-out-row {
+    /* background-color: pink; */
+    height: 32rem;
+}
+
+.sign-out-col-1 {
+    height: 100%;
+}
+
+.sign-out-col-2 {
+    height: 100%;
+}
+
+.sign-out-image {
+    height: 100%;
+    overflow: hidden;
 }

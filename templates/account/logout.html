@@ -1,21 +1,33 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% load i18n %}
 
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Out" %}</h1>
 
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
+<div class="container">
+  <div class="row sign-out-row">
+    <div class="col-4 sign-out-col-1">
+      <h1 class="align-center pt-5 text-center">{% trans "Sign Out" %}</h1>
+      <br>
+      <p class="align-center p-0 text-center">{% trans 'Are you sure you want to sign out?' %}</p>
+      <br>
+      <form class="align-center p-0 text-center" method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% endif %}
+        <button type="submit">{% trans 'Sign Out' %}</button>
+      </form>
+    </div>
+    <div class="col-4 p-0 sign-out-col-2">
+      <img class="sign-out-image" src="/static/images/sign-out-image.jpg" alt="A mountain biker walking off insot the sunset">
+    </div>
+  </div>
+</div>
 
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
-  <button type="submit">{% trans 'Sign Out' %}</button>
-</form>
 
 
 {% endblock %}
