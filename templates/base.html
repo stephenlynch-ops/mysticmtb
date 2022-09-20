@@ -65,6 +65,18 @@
         </div>
     </div>
     
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissable fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 
     <main class="flex-shrink-0 main-bg">
         {% block content %}
@@ -74,10 +86,10 @@
 <!-- Footer Section -->
     <footer class="mt-autp py-3">
         <p class="m-0 text-center">Follow us: 
-            <i class="fab fa-facebook-square ms-3"></i>
-            <i class="fab fa-twitter-square ms-3"></i>
-            <i class="fab fa-instagram-square ms-3"></i>
-            <i class="fab fa-youtube-square ms-3"></i>
+            <a class="socialMedia" href="http://facebook.com" target="_blank" rel="noopener" aria-label="Visit our Facebook page, it opens in a new tab"><i class="fab fa-facebook-square ms-3"></i>
+            <a class="socialMedia" href="http://twitter.com" target="_blank" rel="noopener" aria-label="Visit our Twitter page, it opens in a new tab"><i class="fab fa-twitter-square ms-3"></i></a>
+            <a class="socialMedia" href="http://instagram.com" target="_blank" rel="noopener" aria-label="Visit our Instagram page, it opens in a new tab"><i class="fab fa-instagram-square ms-3"></i></a>
+            <a class="socialMedia" href="http://youtube.com" target="_blank" rel="noopener" aria-label="Visit our YouTube page, it opens in a new tab"><i class="fab fa-youtube-square ms-3"></i></a>
         </p>
         <p id="copyright">Copyright The Black Mountain MTB Trails 2022</p>
     </footer>

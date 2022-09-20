@@ -12,6 +12,7 @@ a, i {
 .my-buttons {
     background-color: aliceblue;
     border: 1px solid black;
+    color: black;
 }
 
 /* Base.html specific styles */

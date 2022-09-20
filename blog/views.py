@@ -8,7 +8,7 @@ class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-published_on')
     template_name = 'trails.html'
-    paginate_by = 4
+    paginate_by = 3
 
 
 
