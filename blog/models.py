@@ -42,11 +42,10 @@ class Comment(models.Model):
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
+    years_riding = models.CharField(max_length=2, default=0)
 
     class Meta:
         ordering = ['created_on']
     
     def __str__(self):
         return f"Comment {self.body} made by {self.name}"
-
-
