@@ -12,9 +12,6 @@ class PostList(generic.ListView):
     paginate_by = 4
 
 
-def open_home_page(request):
-    return render(request, 'index.html')
-
 
 class PostDetail(View):
 
@@ -81,4 +78,13 @@ class PostLike(View):
             post.likes.add(request.user)
         
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+
+def open_home_page(request):
+    return render(request, 'index.html')
+
+
+def open_cafe_page(request):
+    return render(request, 'cafe.html')
 
