@@ -88,3 +88,7 @@ def open_home_page(request):
 def open_cafe_page(request):
     return render(request, 'cafe.html')
 
+
+def open_gallery_page(request):
+    return render(request, 'gallery.html')
+
