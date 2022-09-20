@@ -57,12 +57,15 @@
                                 {% else %}
                                     <span class="text-secondary text-light"><i class="fa-regular fa-heart"></i></span>
                                 {% endif %}
-                            <span class="text-secondary text-light">{{ post.number_of_likes }} </span>
+                            <span class="text-secondary text-light">{{ post.likes.count }} </span>
                         </strong>
                     </div>
                     <div class="col-1">
                         {% with comments.count as total_comments %}
-                            <strong class="text-secondary text-light"><i class="far fa-comments"></i> {{ total_comments }} </strong>
+                            <strong class="text-secondary text-light">
+                                <span><i class="far fa-comments"></i></span>
+                                <span>{{ total_comments }}</span>
+                            </strong>
                         {% endwith %}
                     </div>
                 </div>
@@ -80,15 +83,10 @@
             <h3>Comments:</h3>
             <div class="card-body">
                 {% for comment in comments %}
-                <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-                        {{ comment.name }}
-                        <span class=" text-muted font-weight-normal">
-                            {{ comment.created_on }}
-                        </span> wrote:
-                    </p>
-                    {{ comment.body | linebreaks }}
-                </div>
+                    <div class="comments" style="padding: 10px; border: 1px solid grey">
+                        <p><span class="text-muted font-weight-normal">{{ comment.created_on }}</span><span class="font-weight-bold">{{ comment.name }} wrote:</span></p>
+                        {{ comment.body | linebreaks }}
+                    </div>
                 {% endfor %}
             </div>
         </div>
@@ -97,7 +95,7 @@
             <div class="card-body">
                 {% if commented %}
                 <div class="alert alert-success" role="alert">
-                    Your comment is awaiting approval
+                    Thank you for your comment, it is awaiting approval
                 </div>
                 {% else %}
                 {% if user.is_authenticated %}
@@ -115,4 +113,4 @@
     </div>
 </div>
 
-{% endblock %}
+{% endblock content %}

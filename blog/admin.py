@@ -14,6 +14,7 @@ class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('content')
 
 
+@admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
 
     list_display = ('name', 'body', 'post', 'created_on', 'approved')

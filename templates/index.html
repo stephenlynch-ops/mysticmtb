@@ -25,7 +25,7 @@
             <div class="container carousel-container">
                 <div class="overlay-image"></div>
                 <div class="carousel-body position-absolute top-50 start-50 translate-middle">
-                    <a href="#" class="btn btn-lg btn-dark"><h1>View The Cafe & Shop</h1></a>
+                    <a href="{% url 'open_cafe_page' %}" class="btn btn-lg btn-dark"><h1>View The Cafe & Shop</h1></a>
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
             <div class="container carousel-container">
                 <div class="overlay-image"></div>
                 <div class="carousel-body position-absolute top-50 start-50 translate-middle">
-                    <a href="#" class="btn btn-lg btn-dark"><h1>Photo Gallery</h1></a>
+                    <a href="{% url 'open_gallery_page' %}" class="btn btn-lg btn-dark"><h1>Photo Gallery</h1></a>
                 </div>
             </div>
         </div>
@@ -76,10 +76,15 @@
             </p>
             <br>
             <h3>On site facilities</h3>            
-            <p>Oh, and did we mention we have cake. Check out the <a href="#"><span>Cafe</span></a> page 
-                for more information on our latest coffees and sweet treats. Should you need anything new 
-                for your bike we also have our on site shop and a team of mechanics available to help when 
-                your bike needs some tlc. We also have on site toilets and changing facilities.
+            <p>Oh, and did we mention we have cake. Check out the <a href="{% url 'open_cafe_page' %}"><span>Cafe</span></a> page 
+                for more information on our latest coffees and sweet treats. 
+            </p>
+            <p>
+                Should you need anything new for your bike we also have our on site shop and a team of mechanics available to help when 
+                your bike needs some tlc. 
+            </p>
+            <p>
+                We also have on site toilets and changing facilities.
             </p>
         </div>
         <div class="col-sm-4 small-hero-wrapper">
@@ -87,4 +92,4 @@
         </div>
     </div>    
 </div>
-{% endblock %}
+{% endblock content %}

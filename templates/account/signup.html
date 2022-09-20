@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% load crispy_forms_tags %}
+
 {% load i18n %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
@@ -14,10 +16,12 @@
       <p class="align-center p-0 text-center">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
         <form class="signup p-0" id="signup_form" method="post" action="{% url 'account_signup' %}">
           {% csrf_token %}
-          {{ form.as_p }}
+          {{ form | crispy }}
           {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />            {% endif %}
-            <button class="my-buttons" type="submit">{% trans "Sign Up" %} &raquo;</button>
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+            <br>
+            <button class="btn btn-signup right my-buttons" type="submit">{% trans "Sign Up" %}</button>
         </form>
       </div>
     <div class="col-5 p-0 sign-out-col-2" style="background-image:url(/static/images/signup-image.jpg)" alt="A rider riding the trails">

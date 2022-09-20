@@ -9,10 +9,13 @@
 
 <div class="container">
   <div class="row sign-out-row">
-    <div class="col-5 sign-out-col-1">
+    <div class="col-5 sign-out-col-1 mt-5">
       <h3>{% trans "Sign In" %}</h3>
-        <p>{% blocktrans %}Welcome back to the Black Mountain Trails. 
-          If you would like to be part of our community then please log in. 
+        <p>{% blocktrans %}Welcome back to the Black Mountain Trails.</p>
+        <p>  
+          If you would like to be part of our community then please sign in.
+        </p>
+        <p> 
           To join us and help make the trails beter than ever, then please  
         <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
       <form class="login" method="POST" action="{% url 'account_login' %}">

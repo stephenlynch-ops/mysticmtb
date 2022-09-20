@@ -67,7 +67,6 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',   
 }
 
-# Testing to see if this works with a bootstrap 5 pack we used 4 in the walkthrough
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
