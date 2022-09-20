@@ -80,5 +80,5 @@ class PostLike(View):
         else:
             post.likes.add(request.user)
         
-        return HtteResponseRedirect(reverse('trail_detail', args=[slug]))
+        return HttpResponseRedirect(reverse('trail_detail', args=[slug]))
 

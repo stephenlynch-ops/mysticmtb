@@ -102,7 +102,7 @@ a, i {
     text-decoration: none;
 }
 
-/* Logout.html specific styles */
+/* Logout / Login / Signup.html specific styles */
 
 .sign-out-row {
     /* background-color: pink; */
@@ -123,7 +123,11 @@ a, i {
 }
 
 .sign-out-image {
-    background-color: blue;
     height: 100%;
     overflow: hidden;
+}
+
+.my-buttons {
+    background-color: aliceblue;
+    border: 1px solid black;
 }

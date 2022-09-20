@@ -8,25 +8,23 @@
 {% block content %}
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-8 mt3 offset-md-2">
+  <div class="row sign-out-row">
+    <div class="col-5 sign-out-col-1">
       <h3>{% trans "Sign In" %}</h3>
         <p>{% blocktrans %}Welcome back to the Black Mountain Trails. 
           If you would like to be part of our community then please log in. 
           To join us and help make the trails beter than ever, then please  
         <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-      </div>
-    </div>
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
       <form class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
         {{ form.as_p }}
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <button class="btn btn-signup right" type="submit">{% trans "Sign In" %}</button>
+        <button class="btn btn-signup right my-buttons" type="submit">{% trans "Sign In" %}</button>
       </form>
+    </div>
+    <div class="col-5 p-0 sign-out-col-2" style="background-image:url(/static/images/login-image.jpg)" alt="A rider riding the trails">
     </div>
   </div>
 </div>
