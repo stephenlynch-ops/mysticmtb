@@ -105,10 +105,6 @@ a, i {
     text-decoration: none;
 }
 
-.likes-count {
-    background-color: pink;
-}
-
 /* Trail_detail.html style section */
 
 .trail-detail-image-row {
@@ -119,6 +115,27 @@ a, i {
     max-height: 42rem;
     overflow: hidden;
 }
+
+/* Cafe.html specific styles */
+
+.cafe-row {
+    height: 32rem;
+}
+
+.cafe-half-row {
+    height: 16rem;
+}
+
+.cafe-image-col, .cafe-image-half-col {
+    height: 100%;
+}
+
+.cafe-image {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
 
 /* Logout / Login / Signup.html specific styles */
 

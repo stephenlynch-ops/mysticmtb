@@ -1,10 +1,63 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
 
 <div class="container">
-    This is the cafe & shop page
+    <div class="row cafe-row mt-3">
+        <div class="col-4 cafe-text align-middle">
+            <h3 class="mt-5">The perfect way to take 5 from the trails</h3>
+            <br>
+            <p>Choose from our many high quality coffee beans, pick your style 
+                and let our coffee experts do the rest.
+            </p>
+            <br>
+            <p>
+                We also have a selection of teas and cold drinks should you prefer.
+            </p>
+        </div>
+        <div class="col-7 mt-3">
+            <img class="img-fluid cafe-image" src="/static/images/cafe-coffee-image.jpg" alt="Coffee being made">
+        </div>
+    </div>
+    <div class="row cafe-row mt-3">
+        <div class="col-6 cafe-image-col">
+            <img class="img-fluid cafe-image" src="/static/images/cafe-cake-image.jpg" alt="A slice of cake">
+        </div>
+        <div class="col-4 cafe-text align-start">
+            <h3 class="mt-5">Oh and did we mention we have cake?</h3>
+            <br>
+            <p>Oh, we did already... Well let me tell you about it again.</p>
+            <br>
+            <p>    
+                Our selection of cakes changes daily and are all made by the local (it's 
+                5 miles up the road) bakery. They send many fine cakes our way and all are
+                simply amazing.
+            </p>
+        </div>
+    </div>
+    <br>
+    <div class="row cafe-row">
+        <div class="col-4 cafe-image-col">
+            <img class="img-fluid cafe-image" src="/static/images/cafe-snap-1.jpg" alt="Coffee and a cookie">
+        </div>
+        <div class="col-4 cafe-image-col">
+            <img class="img-fluid cafe-image" src="/static/images/cafe-snap-4.jpg" alt="A slice of cake">
+        </div>
+        <div class="col-4">
+            <div class="row cafe-half-row">
+                <div class="col cafe-image-half-col">
+                    <img class="img-fluid cafe-image" src="/static/images/cafe-snap-2.jpg" alt="A slice of cake">
+                </div>
+            </div>    
+            <div class="row cafe-half-row">
+                <div class="col cafe-image-half-col">
+                    <img class="img-fluid cafe-image" src="/static/images/cafe-snap-3.jpg" alt="A slice of cake">
+                </div>
+            </div>
+        </div>    
+    </div>
 </div>
 
 {% endblock %}
