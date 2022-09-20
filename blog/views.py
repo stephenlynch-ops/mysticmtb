@@ -3,6 +3,8 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm
+from datetime import datetime
+import pytz
 
 class PostList(generic.ListView):
     model = Post
@@ -79,9 +81,29 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
+class OpenHomePage():
 
-def open_home_page(request):
-    return render(request, 'index.html')
+    opening_time = 8
+    closing_time = 19
+
+    tz_London = pytz.timezone('Europe/London')
+    datetime_London = datetime.now(tz_London)
+    now = int(datetime_London.strftime("%H"))
+
+    if (now >= closing_time and now < 24):
+        hours = ((24 - now) + opening_time)
+        context = { f"There are {hours} until the trails open tomorrow" }
+    elif now < opening_time:
+        hours = (opening_time - now)
+        context = { f"There are {hours} until the trails open today" }
+    else:
+        context = {"The trails are open"}
+
+    def open_home_page(self, request):
+        return render(request, 'index.html', context)
+
+# def open_home_page(request):
+#     return render(request, 'index.html')
 
 
 def open_cafe_page(request):
@@ -90,3 +112,5 @@ def open_cafe_page(request):
 
 def open_gallery_page(request):
     return render(request, 'gallery.html')
+
+
