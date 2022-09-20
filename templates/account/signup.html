@@ -9,20 +9,18 @@
 
 <div class="container">
   <div class="row sign-out-row">
-    <div class="col-4 sign-out-col-1">
+    <div class="col-5 sign-out-col-1">
       <h1 class="align-center pt-5 text-center">{% trans "Sign Up" %}</h1>
       <p class="align-center p-0 text-center">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-      <form class="signup align-center p-0 text-center" id="signup_form" method="post" action="{% url 'account_signup' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-        <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-      </form>
-    </div>
-    <div class="col-4 p-0 sign-out-col-2">
-      <img class="sign-out-image" src="/static/images/signup-image.jpg" alt="A mountain biker walking off insot the sunset">
+        <form class="signup p-0" id="signup_form" method="post" action="{% url 'account_signup' %}">
+          {% csrf_token %}
+          {{ form.as_p }}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />            {% endif %}
+            <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+        </form>
+      </div>
+    <div class="col-5 p-0 sign-out-col-2" style="background-image:url(/static/images/signup-image.jpg)" alt="A rider riding the trails">
     </div>
   </div>
 </div>

@@ -114,10 +114,16 @@ a, i {
 }
 
 .sign-out-col-2 {
-    height: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-position: center;
+    background-size: cover;
 }
 
 .sign-out-image {
+    background-color: blue;
     height: 100%;
     overflow: hidden;
 }
