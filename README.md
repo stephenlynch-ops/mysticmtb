@@ -53,8 +53,8 @@ As part of the deisn process I used Balsamiq wireframes software to design the b
 
 In keeping with the Black Mountain name I decided to use a dark pallet and have the images and text standout as if they are negatives of the site.
 
-    - Background color: #212529 Which is a very dark grey
-    - Font color: #fff Which is a strong white
+- Background color: #212529 Which is a very dark grey
+- Font color: #fff Which is a strong white
 
 ## Features
 
@@ -235,7 +235,8 @@ The above image shows the banner text that can be clicked - in this case it woul
 
 - Site has been evaluated by Lighthouse and the report is below.
 
-# INSERT IMAGE OF LIGHTHOUSE REPORT CARD HERE
+<img src="static/images/Lighthouse-report.jpg" alt="Lighthouse report">
+
 ## Deployment
 
 The site is deployed from Heroku.

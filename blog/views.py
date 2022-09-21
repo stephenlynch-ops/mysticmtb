@@ -1,29 +1,42 @@
+""" Imports django shortcuts """
+from datetime import datetime
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+import pytz
 from .models import Post
 from .forms import CommentForm
-from datetime import datetime
-import pytz
+
 
 class PostList(generic.ListView):
+    """ Uses post model
+        Checks for published posts, sorts by date
+        loads trails.html template
+        paginates articles by 3 (per page)
+    """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-published_on')
     template_name = 'trails.html'
     paginate_by = 3
 
 
-
 class PostDetail(View):
+    """ Inherits View for the locading of the trail articles
+    """
 
     def get(self, request, slug, *args, **kwargs):
+        """ Set parameters receiving post detail
+            Checks posted comments are approved before render
+            Checks likes for user liked
+            Returns trail_detail.html template
+        """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
-        
+
         return render(
             request,
             "trail_detail.html",
@@ -37,13 +50,21 @@ class PostDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
+        """ Set parameters posting comments detail
+            Checks posted comments are approved before render
+            Checks likes for user liked
+            Returns trail_detail.html template
+
+            Tests comment form is valid and user is authorised to post
+            prior to posting.
+        """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
-        
+
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
@@ -69,19 +90,29 @@ class PostDetail(View):
 
 
 class PostLike(View):
+    """ Inherits View for the below functions
+    """
 
     def post(self, request, slug):
+        """ Checks user is on list of likes and allows toggle of
+            like button.
+        """
         post = get_object_or_404(Post, slug=slug)
 
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
         else:
             post.likes.add(request.user)
-        
+
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
 def open_home_page(request):
+    """ Collects current hour
+        compares to opening / closing time and returns message
+        based on if conditions.
+        Opens index.html template.
+    """
 
     opening_time = 8
     closing_time = 19
@@ -109,10 +140,13 @@ def open_home_page(request):
 
 
 def open_cafe_page(request):
+    """ Opens cafe.html template
+    """
+
     return render(request, 'cafe.html')
 
 
 def open_gallery_page(request):
+    """ Opens gallery.html template
+    """
     return render(request, 'gallery.html')
-
-
