@@ -209,9 +209,9 @@ The above image shows the banner text that can be clicked - in this case it woul
 
 - The site was developed using the Chrome developer tools for the HTML and styling elements.
 
-- The Python testing was carried out using coverage (a report is attached below).
+- The Python testing was carried out using coverage.
 
-# INSERT COVERAGE REPORT SCREENSHOT HERE
+<img src="static/images/coverage-report.jpg" alt="Coverage report">
 
 ### Compatability testing
 
