@@ -213,6 +213,122 @@ The above image shows the banner text that can be clicked - in this case it woul
 
 <img src="static/images/coverage-report.jpg" alt="Coverage report">
 
+#### Model Testing
+
+    -""" Imports TestCase from django.test"""
+    from django.test import TestCase
+    from django.contrib.auth.models import User
+    from .models import Post, Comment
+
+
+    class TestBlogModels(TestCase):
+        """ Inherits TestCase for all functions below
+        """
+
+        def test_post_str(self):
+            """ Tests a post can be created and title is returned.
+            """
+            user = User.objects.create(username="Name",)
+            post = Post.objects.create(title="Test Title", author=user)
+            self.assertEqual(post.title, "Test Title")
+
+        def test_comment_str_(self):
+            """ Tests a comment can be created and that the body and
+                author can be returned.
+            """
+            user = User.objects.create(username="Name",)
+            post = Post.objects.create(title="Test Title", author=user)
+            comment = Comment.objects.\
+                create(post=post, body="Some text", name="Me", approved=True)
+            self.assertEqual(comment.body, "Some text")
+            self.assertEqual(comment.name, "Me")
+
+The above tests were used to test the models were setup to handle the required data in order to manage to trail posts.
+
+### Views Testing
+
+    -   """ Imports TestCase from django.test """
+        from django.test import TestCase
+        from django.contrib.auth.models import User
+        from .models import Post, Comment
+
+
+        class TestViews(TestCase):
+        """ Inherits TestCase for all functions below
+        """
+
+        def test_post_list_opens_trail_list(self):
+            """ Test the corrrect template is used
+            """
+            response = self.client.get('/trails/')
+            self.assertEqual(response.status_code, 200)
+            self.assertTemplateUsed(response, 'trails.html')
+
+        def test_post_detail_operates_as_expected(self):
+            """ Tests the post detail creates a post as expected
+            """
+            user = User.objects.create(username="Name")
+            post = Post.objects.\
+                create(title="Test Title", author=user, status=1)
+            comment = Comment.objects.\
+                create(post=post, body="Some text", name="Me", approved=True)
+            self.assertEqual(comment.body, "Some text")
+            self.assertEqual(post.status, 1)
+
+        def test_open_home_page_works(self):
+            """ Test the corrrect template is used
+            """
+            response = self.client.get('/')
+            self.assertEqual(response.status_code, 200)
+            self.assertTemplateUsed(response, 'index.html')
+
+        def test_open_cafe_page_works(self):
+            """ Test the corrrect template is used
+            """
+            response = self.client.get('/cafe/')
+            self.assertEqual(response.status_code, 200)
+            self.assertTemplateUsed(response, 'cafe.html')
+
+        def test_open_gallery_page_works(self):
+            """ Test the corrrect template is used
+            """
+            response = self.client.get('/gallery/')
+            self.assertEqual(response.status_code, 200)
+            self.assertTemplateUsed(response, 'gallery.html')
+
+While I am happy with the tests carried out on the views it is still short of where I wanted to be (50%). I struggled to carry out these tests as thourghly as I would have liked.
+
+#### Forms Testing
+
+    -   """ Imports Testcase from django.test"""
+        from django.test import TestCase
+        from .forms import CommentForm
+
+
+        class TestCommentForm(TestCase):
+            """ Inherits TestCase for all functions below
+            """
+            def test_coment_body_is_required(self):
+                """ Tests name is a required field in form
+                """
+                form = CommentForm({'body': ''})
+                self.assertFalse(form.is_valid())
+                self.assertIn('body', form.errors.keys())
+                self.assertEqual(form.errors['body'][0], 'This field is required.')
+
+            def test_years_riding_default_is_working(self):
+                """ Tests years riding default value is valid
+                """
+                form = CommentForm({'body': 'my comment', 'years_riding': 0})
+                self.assertTrue(form.is_valid())
+
+            def test_form_fields_are_explicit_in_form_metaclass(self):
+                """ Tests form fields are in place and in order
+                """
+                form = CommentForm()
+                self.assertTrue(form.Meta.fields, ['body', 'years_riding'])
+
+The forms were 100% tested, although the form is small and required very little testing.
 ### Compatability testing
 
 - The site has been tested on multiple screen sizes and is responsive throughout.
@@ -243,18 +359,19 @@ The site is deployed from Heroku.
 
 1. Click deploy from app home page
 
+<img src="static/images/Click-Deploy.jpg" alt="Click deploy section">
 
-2. Click GitHub link in deployment method
+2. Click GitHub link in deployment method and link the repository
 
+<img src="static/images/Link-Repo.jpg" alt="Link the GitHub Repo section">
 
-3. Link to GitHub repo
+3. Click deploy branch button
 
+<img src="static/images/Deploy-Branch.jpg" alt="Deploy branch button">
 
-4. Click deploy branch button
+4. Click open app button
 
-
-5. Click open app button
-
+<img src="static/images/View.jpg" alt="View button">
 
 # Credits
 
