@@ -88,6 +88,9 @@
                             <span class="font-weight-bold">{{ comment.name }} wrote:</span>
                         </p>
                         {{ comment.body | linebreaks }}
+                        <p class="text-muted">
+                            {{ comment.name }} has been riding for {{ comment.years_riding }} years
+                        </p>
                     </div>
                 {% endfor %}
             </div>
