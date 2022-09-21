@@ -136,7 +136,7 @@ def open_home_page(request):
             'message': "The trails are OPEN"
             }
 
-        return render(request, 'index.html', context)
+    return render(request, 'index.html', context)
 
 
 def open_cafe_page(request):
