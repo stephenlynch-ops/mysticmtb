@@ -1,108 +1,305 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Black Mountain MTB Trails website
 
-Welcome Stephen Lynch,
+<img src="static/images/Responsive-Screen-Shot.jpg" alt="Responsive screen shots of the site">
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Black Mountain MTB Trails is a trail center and a mountain bikers dream.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+There are world class trails to test all levels of skill as well as 'probably' the best cafe in the world waiting for you when you get back from your ride.
 
-## Gitpod Reminders
+This website is designed to show potential visitors what they can find there as well as giving anyone who wishes to sign up to comment on the blogs for the individual trails. In essance giving the riders the chance to communicate directly with the trails and trail builders.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Table of contents
 
-`python3 -m http.server`
+- [UX](#UX)
+    - [Business goals](#Business-goals)
+    - [User goals](#User-goals)
+    - [Wireframes layout](#Wireframes-layout)
+    - [Website pallette](#Website-pallette)
+- [Features](#Features)
+- [Technology](#Technology)
+- [Testing](#Testing)
+    - [Funcionality testing](#Functionality-testing)
+    - [Compatability testing](#Compatability-testing)
+    - [Code validation](#Code-validation)
+    - [Issues found during testing](#Issues-found-during-testing)
+    - [Performance testing](#Performance-testing)
+- [Deployment](#Deployment)
+- [Credits](#Credits)
+- [Screenshots](#Screenshots)
 
-A blue button should appear to click: _Make Public_,
+## UX
 
-Another blue button should appear to click: _Open Browser_.
+### Business goals
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+The aim of the site is to increase the number of visitors to the Black Mountain MTB trail center.
 
-A blue button should appear to click: _Make Public_,
+The site admin has complete CRUD functionality in order to deliver the best possible site experience.
 
-Another blue button should appear to click: _Open Browser_.
+The site admin can add more trail articles as well as update existing articles or delete them as needed.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### User goals
 
-To log into the Heroku toolbelt CLI:
+Users can get a taster of the trails and facilities that are available at the Black Mountain.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+They can read and interact with the posts, by adding comments and likes.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Wireframes layout
 
-------
+As part of the deisn process I used Balsamiq wireframes software to design the basis of the site.
 
-## Release History
+<img src="static/images/Wireframes.jpg" alt="Wireframe layout images">
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Website pallette
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+In keeping with the Black Mountain name I decided to use a dark pallet and have the images and text standout as if they are negatives of the site.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+    - Background color: #212529 Which is a very dark grey
+    - Font color: #fff Which is a strong white
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## Features
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+The site is set out over 5 pages, with a consistant navbar feature running throughout the site.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Existing Features
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+- Navigation Bar
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+    - Navigation bar is presented in the same format on all pages to avoid any confusion when navigating the site.
+    
+    - Featured on all pages within the site to allow navigation from any page to any other page.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- Social media links
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+    - These, like the navbar, are present on all pages and link to the sites social media pages. The links open in a new tab.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+<img src="static/images/Landing-Page.jpg" alt="The landing page">
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- The landing page image banner
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+    - This landing page banner provides the user with a snap shot of the three main pages within the site.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+    - The text within the image is clickable and navigates to the text stated destination.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+<img src="static/images/Banner-Link-Text.jpg" alt="Banner text that acts as a link on the site" style="height: 100px;">
 
-------
+The above image shows the banner text that can be clicked - in this case it would take the user to the cafe page.
 
-## FAQ about the uptime script
+- The landing page trail message
 
-**Why have you added this script?**
+    - This line of text either indicates that the trails are open or gives the user a message stating how mnay hours until the trails open again.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+<img src="static/images/Trail-Status.jpg" alt="A message showing the trails are open" style="height: 65px;">
 
-**How will this affect me?**
+- Landing page 'About' section
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+    - This section gives the user some basic information about the Black Mountain MTB trails.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+    - It also provides the ability, via links in the text, to navigate to the trails page, the signup page, login page and the Cafe page.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+    - There is also an image set to the right of the text to break up the text section and continue to stimulate the user.
 
-**So….?**
+<img src="static/images/Trails-Page.jpg" alt="The trails page">
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+- The Trails page
 
-**Can I opt out?**
+    - This page is the main hub of the site. It begins by showing 2 large images from the trail as well as a small map image.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+    - There is some key information about the trail, such as its name and difficulty. Each trail name is a link to the article page designed for that trail.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+    - There is then the article which gives further information about the trail.
 
-**Anything more?**
+    - There are further trail images, information and articles below for the user to pick the trail they wish to read about.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+<img src="static/images/Trail-Article-Page.jpg" alt="The trails article page">
 
----
+- The trail articles
 
-Happy coding!
+    - These pages load the trail information from the database and present it to the user so they can read the detail, apply likes and comment on the articles.
+
+    - Similar to the trails page these specific trail pages begin with the name and images.
+
+    - There is then the article detail, which is written and posted by the site superusers, via the admin page. followed by the existing comments section.
+
+    - If the user has signed up for an account they also have the ability to comment and like articles, these sections are below the article section.
+
+    - As part of the commenting process users can indicate how long they have been riding for, this gives riders with a similar level of experience a bench mark to judge the comments by.
+
+    - Once posted, the user comments are then passed to the admin (superuser) for authorisation and posting to the site.
+
+<img src="static/images/The-Cafe-Page.jpg" alt="The Cafe page">
+
+- The cafe page
+
+    - This gives the user a brief overview of the cafe facilities and some of the item that can be found there.
+
+    - There is cake, lots of cake.
+
+<img src="static/images/Gallery-Page.jpg" alt="The Gallery page">
+
+- The gallery page
+
+    - This shows some of the images that have been taken of riders riding the trails.
+
+    - The images are positioned in a grid system where there are large images positioned next to smaller images.
+
+    - The idea is to inspire riders to come and rider the trails.
+
+- User accounts
+
+    - Users can create there own accounts in order to unlock other features on the site, including commenting on articles and liking posts.
+
+<img src="static/images/Sign-Up-Page.jpg" alt="Account signup page">
+
+- Account signup
+
+    - This is a free account and the users simply need to give their desired username, password - this is optional and set a password.
+
+<img src="static/images/Sign-Out-Page.jpg" alt="Account signout page">
+
+- Account signout
+
+    - Once users wish to leave the site they have the option to signout.
+
+<img src="static/images/Sign-In-Page.jpg" alt="Account signin page">
+
+- Account signin
+
+    - User can then signin when they return to the site.
+
+## Technology
+
+### Python / Django
+
+- The programming language and framework.
+### HTML
+
+- The structure language of the site.
+
+### Bootstrap / CSS
+
+- The styling language and framework.
+
+### Font Awesome
+
+- The library for the icons used within the site
+
+### Cloudinary Storage
+
+- The image storage for the site.
+
+### Allauth
+
+- User authentication, verification and account management.
+
+### Crispy Forms
+
+- Used for form context, styling and rendering.
+
+### Gunicorn
+
+- Web server for Python.
+
+### Summernote
+
+- Editor for comments and text fields.
+
+## Testing
+
+### Functionality testing
+
+- The site was developed using the Chrome developer tools for the HTML and styling elements.
+
+- The Python testing was carried out using coverage (a report is attached below).
+
+# INSERT COVERAGE REPORT SCREENSHOT HERE
+
+### Compatability testing
+
+- The site has been tested on multiple screen sizes and is responsive throughout.
+
+### Code validation
+
+- The HTML and CSS have been tested using jigsaw.w3.org with no errors showing.
+
+- The Python was also tested online with no errors showing.
+
+### Issues found during testing
+
+- When testing the models, views and forms with TestView I had an issue in getting the tests to run. This was because I had already deplyed the site to Heroku and so had the database pointed to Postgres and not SQLite3.
+
+- Once the database was reset to SQLite the test ran ok.
+
+- I would have liked to do more tests but time has caught up with me and I can't risk missing this deadline, so the testing was focused as much as possible. The items that haven't been covered in the coverage report have been manually tested in deployment.
+
+### Performance testing
+
+- Site has been evaluated by Lighthouse and the report is below.
+
+# INSERT IMAGE OF LIGHTHOUSE REPORT CARD HERE
+## Deployment
+
+The site is deployed from Heroku.
+
+1. Click deploy from app home page
+
+
+2. Click GitHub link in deployment method
+
+
+3. Link to GitHub repo
+
+
+4. Click deploy branch button
+
+
+5. Click open app button
+
+
+# Credits
+
+- The site is influenced by Komoot, which I use and find easy to navigate and use.
+
+- The national trusts cycling sites were also an influence, in regards to page content.
+
+- The Code Institute Blog and ToDo app walkthoughs were the basis for the inner workings of the site, such as Django and Python functions.
+
+- uLearn on YouTube were the guide used for getting more familiar with Wireframes.
+
+- All of the images came from Pexels and the owners of the images are;
+    - Axel Brunst
+    - Hendrik Morkel
+    - Jeremy Bishop
+    - Nick Rickerts
+    - Marina Kuznetsova
+    - Luca Dross
+    - Pixabay
+    - Anastasia Shuraeva
+    - Darcy Lawrey
+    - Jan Kopriva
+    - Lars Mai
+    - Viktoria Alipatova
+
+- The other students on Slack helped me with the testing issues, clearly some had faced the same issue.
+
+## Screenshots
+
+### Landing Page
+<img src="static/images/Landing-Page.jpg" alt="The landing page">
+
+### Trails Page
+<img src="static/images/Trails-Page.jpg" alt="The trails page">
+
+### Trail Article Page
+<img src="static/images/Trail-Article-Page.jpg" alt="The trails article page">
+
+### Cafe Page
+<img src="static/images/The-Cafe-Page.jpg" alt="The Cafe page">
+
+### Signup Page
+<img src="static/images/Sign-Up-Page.jpg" alt="Account signup page">
+
+### Signout Page
+<img src="static/images/Sign-Out-Page.jpg" alt="Account signout page">
+
+### Signin Page
+<img src="static/images/Sign-In-Page.jpg" alt="Account signin page">
