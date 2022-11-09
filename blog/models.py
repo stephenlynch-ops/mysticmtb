@@ -1,9 +1,11 @@
 """ imports models from django.db"""
+import uuid
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
+USER_REMOVED = ((0, 'No'), (1, 'Yes'))
 
 
 class Post(models.Model):
@@ -72,6 +74,7 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
     years_riding = models.CharField(max_length=2, default=0)
+    user_removed = models.IntegerField(choices=USER_REMOVED, default=0)
 
     class Meta:
         """ Ordering of comments set to -created on date / time
@@ -82,3 +85,4 @@ class Comment(models.Model):
         """ Returns f string
         """
         return f"Comment {self.body} made by {self.name}"
+

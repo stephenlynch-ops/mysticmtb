@@ -1,10 +1,12 @@
 """ Imports django shortcuts """
 from datetime import datetime
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404, reverse, HttpResponse
 from django.views import generic, View
+from django.views.generic.edit import FormView
 from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
 import pytz
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm
 
 
@@ -21,7 +23,7 @@ class PostList(generic.ListView):
 
 
 class PostDetail(View):
-    """ Inherits View for the locading of the trail articles
+    """ Inherits View for the loading of the trail articles
     """
 
     def get(self, request, slug, *args, **kwargs):
@@ -32,7 +34,7 @@ class PostDetail(View):
         """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by('created_on')
+        comments = post.comments.filter(approved=True, user_removed=0).order_by('created_on')
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -60,7 +62,7 @@ class PostDetail(View):
         """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by('created_on')
+        comments = post.comments.filter(approved=True, user_removed=0).order_by('created_on')
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -150,3 +152,13 @@ def open_gallery_page(request):
     """ Opens gallery.html template
     """
     return render(request, 'gallery.html')
+
+class DeleteComment(View):
+
+    def delete_comment(self, request, slug, *args, **kwargs):
+
+        our_comment = get_object_or_404(Comment, pk=comment_id)
+        current_score = our_comment.user_removed
+        new_score = current_score =+ 1
+
+        return new_score

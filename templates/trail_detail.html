@@ -85,13 +85,21 @@
             <div class="card-body">
                 {% for comment in comments %}
                     <div class="comments" style="padding: 10px; border: 1px solid grey">
-                        <p><span class="text-muted font-weight-normal">{{ comment.created_on }}</span>
+                        <p><span class="text-muted font-weight-normal">({{ comment.id }}) - {{ comment.created_on }} -></span>
                             <span class="font-weight-bold">{{ comment.name }} wrote:</span>
                         </p>
                         {{ comment.body | linebreaks }}
                         <p class="text-muted">
                             {{ comment.name }} has been riding for {{ comment.years_riding }} years
                         </p>
+                        {% if comment.name == user.username %}
+                            <form method="post">
+                                {{ comment_delete_form | crispy }}
+                                {% csrf_token %}
+                                <a type="submit" class="delete-comment-button btn btn-danger rounded-0 text-uppercase py-1">Delete Your Comment</a>
+                            </form>
+                        {% endif %}
+                        
                     </div>
                 {% endfor %}
             </div>

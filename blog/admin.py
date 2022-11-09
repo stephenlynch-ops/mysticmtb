@@ -9,7 +9,7 @@ class PostAdmin(SummernoteModelAdmin):
     """Sets the admin fields in Django admin page for posts.
     """
     prepopulated_fields = {'slug': ('title',)}
-    list_filter = ('status', 'published_on', 'author')
+    list_filter = ('id', 'status', 'published_on', 'author')
     list_display = ('title', 'slug', 'status', 'published_on', 'difficulty')
     search_fields = ('title', 'difficulty', 'content')
     summernote_fields = ('content')
@@ -19,7 +19,7 @@ class PostAdmin(SummernoteModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     """Sets the admin fields in Django admin page for comments.
     """
-    list_display = ('name', 'body', 'post', 'created_on', 'approved')
+    list_display = ('id', 'name', 'body', 'post', 'created_on', 'approved', 'user_removed')
     list_filter = ('approved', 'created_on')
     search_fields = ('name', 'email_address', 'body', 'approved')
     actions = ['approve_comments']

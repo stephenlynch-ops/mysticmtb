@@ -10,4 +10,5 @@ urlpatterns = [
     path('trails/', views.PostList.as_view(), name='PostList'),
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
+    path('<slug:slug>/comment_deleted/', views.DeleteComment.as_view(), name='DeleteComment')
 ]
